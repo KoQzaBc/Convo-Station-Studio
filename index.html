@@ -1,23 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
 <title>私は何を見ている？</title>
-<h1>なにかが見える</h1>
-<boby>
+<style>
+  div#size {
+    background: red;
+    width: 890px;
+  }
+  div#jbc {
+    width: 650px;
+    background: blue;
+  }
+  div#jon {
+    width: 750px;
+    color: white;
+    background: #0f0;
+  }
+  div#aaa {
+    background: brown;
+    color: red;
+    width: 950px;
+  }
+</style>
+</head>
+<body>
 <div id="size">
-<h2>それは大きくて</h2>
-<h1>そして</h1>
-<h3>小さいようだ<h3>
-<div id="jbc">
-<h3>自分の頭を殴った</h3>
-<h1>痛い</h1>
-<h3>頭がおかしくなったわけでも、夢を見ているだけでもないようだ</h3>
-  </boby>
+  <h2>それは大きくて</h2>
+  <h1>そして</h1>
+  <h3>小さいようだ</h3>
+  <div id="jbc">
+    <h3>自分の頭を殴った</h3>
+    <h1>痛い</h1>
+    <h3>頭がおかしくなったわけでも、夢を見ているだけでもないようだ</h3>
+  </div>
+</div>
 <progress class="pop" max="150"></progress>
-<h3>いつまでも続くような、往復しているような<h3>
+<h3>いつまでも続くような、往復しているような</h3>
 <div id="jon">
-<h1>俺の目の前に存在する</h1>
-<h2>それは<h2>
+  <h1>俺の目の前に存在する</h1>
+  <h2>それは</h2>
   <h2>いったい何だったんだ？</h2>
+</div>
 <div id="aaa">
-<table>
-  <p>私は人間</p>
-  <p>謎は深まるばかりだ</p>
-<table>
+  <table>
+    <p>私は人間</p>
+    <p>謎は深まるばかりだ</p>
+  </table>
+</div>
+<script>
+  // 10秒ごとにページをリロードする
+  setInterval(function() {
+    location.reload();
+  }, 10000); // 10000ミリ秒 = 10秒
+</script>
+</body>
+</html>
