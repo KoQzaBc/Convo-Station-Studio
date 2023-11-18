@@ -4,60 +4,82 @@
   <meta charset="UTF-8">
   <title>私は何を見ている？</title>
   <style>
-    /* CSSスタイル */
-    /* リンクの色を変更 */
-    a {
-      color: #000000; /* 青以外の色に変更する場合はここを変えてください */
-      text-decoration: none; /* リンクの下線を削除する場合 */
-    }
-    
-    /* 各要素のスタイル */
-    #size {
-      background: linear-gradient(45deg, red, #3ff, #f0f);
-      width: 890px;
-    }
-    
-    #jbc {
-      width: 650px;
-      background: blue;
-      color: black;
-    }
-    
-    #jon {
-      width: 750px;
-      color: white;
-      background: #0f0;
-    }
-    
-    #aaa {
-      background: brown;
-      color: red;
-      width: 950px;
-    }
-    
-    mp {
-      color: #f0f;
-    }
-    
-    #2-2 {
-      color: red;
-    }
-    
-    #moc {
-      background: yellow;
-      color: red;
-    }
-    
-    #kaitou {
-      background: #f0f;
-      color: red;
-      width: 950px;
-    }
-    
-    #mi {
-      float: left;
-    }
-  </style>
+  /* 共通のスタイル */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+
+  /* 要素のスタイル */
+  #size {
+    background: linear-gradient(45deg, #FF6B6B, #3FFCFF, #B536FF);
+    width: 600px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #fff;
+  }
+
+  #jbc, #jon, #aaa, #moc, #kaitou {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  #jbc {
+    background: #69a3e4;
+    color: #333;
+  }
+
+  #jon {
+    background: #28df99;
+    color: #fff;
+  }
+
+  #aaa {
+    background: #ff847c;
+    color: #fff;
+  }
+
+  #moc {
+    background: #ffd166;
+    color: #f38181;
+  }
+
+  #kaitou {
+    background: #6d6875;
+    color: #fff;
+  }
+
+  /* その他のスタイル */
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  button:hover {
+    background-color: #555;
+  }
+
+  #timer {
+    font-size: 24px;
+    margin-top: 20px;
+  }
+</style>
 </head>
 <body>
   <!-- HTMLコンテンツ -->
@@ -75,6 +97,30 @@
           <h1>痛い</h1>
           <h3>頭がおかしくなったわけでも、夢を見ているだけでもないようだ</h3>
           <progress id="pop" max="150"></progress>
+
+<script>
+  const progressBar = document.getElementById('pop');
+  let progressValue = 0;
+  let increasing = true;
+
+  function moveProgress() {
+    if (increasing) {
+      progressValue += 1;
+      if (progressValue >= 150) {
+        increasing = false;
+      }
+    } else {
+      progressValue -= 1;
+      if (progressValue <= 0) {
+        increasing = true;
+      }
+    }
+    progressBar.value = progressValue;
+    requestAnimationFrame(moveProgress);
+  }
+
+  moveProgress();
+</script>
           <h3>いつまでも続くような、往復しているような</h3>
           <div id="jon">
             <h1 id="2-2">俺の目の前に存在する</h1>
@@ -97,6 +143,42 @@
         </div>
       </div>
     </div>
+    <!-- ボタンを追加 -->
+    <button onclick="changeColors()">色を変える</button>
+    <!-- タイマー表示用の要素 -->
+    <div id="timer"></div>
   </div>
+<script>
+  function changeColors() {
+    const elementsToChange = document.querySelectorAll('#size, #jbc, #jon, #aaa, mp, #2-2, #moc, #kaitou');
+
+    elementsToChange.forEach(element => {
+      element.style.transition = "background-color 0.5s, color 0.5s";
+      element.style.backgroundColor = getRandomColor();
+      element.style.color = getRandomColor();
+    });
+  }
+
+  function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+  // タイマーを追加する関数
+  function startTimer() {
+    let seconds = 0;
+    setInterval(() => {
+      seconds++;
+      document.getElementById('timer').innerText = `経過時間: ${seconds}秒`;
+    }, 1000);
+  }
+
+  // ページ読み込み後にタイマーを開始する
+  window.onload = startTimer;
+</script>
 </body>
 </html>
