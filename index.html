@@ -3,6 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <title>私は何を見ている？</title>
+<script>
+const fetch = require('node-fetch');
+
+// OAuth2のエンドポイントや認証情報
+const tokenUrl = 'https://koqzabc.github.io';
+const clientId = '1177760527590641694';
+const clientSecret = '4ZerV0wVWQCTt-4fZBkfGrtw5rs_q0ae';
+const redirectUri = 'https://discord.com';
+const authCode = 'the_received_auth_code';
+
+// アクセストークンを取得するリクエストの準備
+const data = {
+  grant_type: 'authorization_code',
+  code: authCode,
+  redirect_uri: redirectUri,
+  client_id: clientId,
+  client_secret: clientSecret
+};
+
+// アクセストークンの取得リクエストを送信
+fetch(tokenUrl, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(data)
+})
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error('Failed to retrieve access token.');
+    }
+  })
+  .then(data => {
+    const accessToken = data.access_token;
+    console.log(`Access Token: ${accessToken}`);
+  })
+  .catch(error => {
+    console.error(error.message);
+  });
+</script>
   <style>
   /* 共通のスタイル */
   body {
@@ -126,6 +168,9 @@
             <h1 id="2-2">俺の目の前に存在する</h1>
             <h2>それは</h2>
             <h2>いったい何だったんだ？</h2>
+ <div style="display: none;">
+    暗号は別のページに存在する
+  </div>
             <div id="aaa">
               <table>
                 <mp>私は<br>人間</mp>
@@ -179,6 +224,20 @@
 
   // ページ読み込み後にタイマーを開始する
   window.onload = startTimer;
+</script>
+<script>
+// 「い」の要素を取得する
+const specialChar = document.getElementById('2-2');
+
+// 「い」がクリックされたときの処理を追加する
+specialChar.addEventListener('click', () => {
+  // 色を反転させる
+  const currentColor = specialChar.style.color;
+  const currentBgColor = specialChar.style.backgroundColor;
+
+  specialChar.style.color = currentBgColor;
+  specialChar.style.backgroundColor = currentColor;
+});
 </script>
 </body>
 </html>
