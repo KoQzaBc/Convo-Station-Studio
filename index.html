@@ -1,243 +1,40 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>私は何を見ている？</title>
-<script>
-const fetch = require('node-fetch');
-
-// OAuth2のエンドポイントや認証情報
-const tokenUrl = 'https://koqzabc.github.io';
-const clientId = '1177760527590641694';
-const clientSecret = '4ZerV0wVWQCTt-4fZBkfGrtw5rs_q0ae';
-const redirectUri = 'https://discord.com';
-const authCode = 'the_received_auth_code';
-
-// アクセストークンを取得するリクエストの準備
-const data = {
-  grant_type: 'authorization_code',
-  code: authCode,
-  redirect_uri: redirectUri,
-  client_id: clientId,
-  client_secret: clientSecret
-};
-
-// アクセストークンの取得リクエストを送信
-fetch(tokenUrl, {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify(data)
-})
-  .then(response => {
-    if (response.ok) {
-      return response.json();
-    } else {
-      throw new Error('Failed to retrieve access token.');
-    }
-  })
-  .then(data => {
-    const accessToken = data.access_token;
-    console.log(`Access Token: ${accessToken}`);
-  })
-  .catch(error => {
-    console.error(error.message);
-  });
-</script>
-  <style>
-  /* 共通のスタイル */
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-  }
-
-  /* 要素のスタイル */
-  #size {
-    background: linear-gradient(45deg, #FF6B6B, #3FFCFF, #B536FF);
-    width: 600px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    color: #fff;
-  }
-
-  #jbc, #jon, #aaa, #moc, #kaitou {
-    margin-top: 20px;
-    padding: 10px;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-
-  #jbc {
-    background: #69a3e4;
-    color: #333;
-  }
-
-  #jon {
-    background: #28df99;
-    color: #fff;
-  }
-
-  #aaa {
-    background: #ff847c;
-    color: #fff;
-  }
-
-  #moc {
-    background: #ffd166;
-    color: #f38181;
-  }
-
-  #kaitou {
-    background: #6d6875;
-    color: #fff;
-  }
-
-  /* その他のスタイル */
-  button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    background-color: #333;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-  }
-
-  button:hover {
-    background-color: #555;
-  }
-
-  #timer {
-    font-size: 24px;
-    margin-top: 20px;
-  }
-</style>
-</head>
-<body>
-  <!-- HTMLコンテンツ -->
-  <div id="mi">
-    <span>なにかが<a href="https://www.KoQzaBc.github.io/bit">見</a>える</span>
-    <div id="size">
-      <h2>それは大きい</h2>
-      <h1>そして</h1>
-      <h3>小さいようだ</h3>
-      <div id="moc">
-        <h1>自分は何を言っているんだ？</h1>
-        <h2>夢でも見てるのかもしれない</h2>
-        <div id="jbc">
-          <h3>自分の頭を殴った</h3>
-          <h1>痛い</h1>
-          <h3>頭がおかしくなったわけでも、夢を見ているだけでもないようだ</h3>
-          <progress id="pop" max="150"></progress>
-
-<script>
-  const progressBar = document.getElementById('pop');
-  let progressValue = 0;
-  let increasing = true;
-
-  function moveProgress() {
-    if (increasing) {
-      progressValue += 1;
-      if (progressValue >= 150) {
-        increasing = false;
-      }
-    } else {
-      progressValue -= 1;
-      if (progressValue <= 0) {
-        increasing = true;
-      }
-    }
-    progressBar.value = progressValue;
-    requestAnimationFrame(moveProgress);
-  }
-
-  moveProgress();
-</script>
-          <h3>いつまでも続くような、往復しているような</h3>
-          <div id="jon">
-            <h1 id="2-2">俺の目の前に存在する</h1>
-            <h2>それは</h2>
-            <h2>いったい何だったんだ？</h2>
- <div style="display: none;">
-    暗号は別のページに存在する
-  </div>
-            <div id="aaa">
-              <table>
-                <mp>私は<br>人間</mp>
-                <mp><br>謎は<br>深まるばかりだ</mp>
-              </table>
-              <div id="kaitou">
-                <table>
-                  <p>あなたは何が見えた？</p>
-                  <p>仲間と考察して考えよう</p>
-                  <p>分かった人は...<br>きっとあそこについたはず</p>
-                </table>
-              </div>
-            </div>
-          </div>
+<html>
+    <head>
+        <title>佐々木原電鉄</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div>
+            <nav>
+                <ul>
+                    <li><a href="https://discord.gg/u7ZdbTRsun"><img src="image/discordicon.png" alt="discordicon" width="52" height="52"></a></li>
+                    <li><a href="https://x.com/ankakeroru?s=11"><img src="image/xicon.png" alt="xicon" width="52" height="52"></a></li>
+                    <li><a style="height: 52px;width: 160px;font-size: 52px;text-align: center;display: flex;align-items: center;justify-content: center;">工事中</a></li>
+                    <!-- 他の開発者様へ、リンクを追加する場合は2K-39に連絡してください -->
+                </ul>
+            </nav>
         </div>
-      </div>
-    </div>
-    <!-- ボタンを追加 -->
-    <button onclick="changeColors()">色を変える</button>
-    <!-- タイマー表示用の要素 -->
-    <div id="timer"></div>
-  </div>
-<script>
-  function changeColors() {
-    const elementsToChange = document.querySelectorAll('#size, #jbc, #jon, #aaa, mp, #2-2, #moc, #kaitou');
-
-    elementsToChange.forEach(element => {
-      element.style.transition = "background-color 0.5s, color 0.5s";
-      element.style.backgroundColor = getRandomColor();
-      element.style.color = getRandomColor();
-    });
-  }
-
-  function getRandomColor() {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-  }
-
-  // タイマーを追加する関数
-  function startTimer() {
-    let seconds = 0;
-    setInterval(() => {
-      seconds++;
-      document.getElementById('timer').innerText = `経過時間: ${seconds}秒`;
-    }, 1000);
-  }
-
-  // ページ読み込み後にタイマーを開始する
-  window.onload = startTimer;
-</script>
-<script>
-// 「い」の要素を取得する
-const specialChar = document.getElementById('2-2');
-
-// 「い」がクリックされたときの処理を追加する
-specialChar.addEventListener('click', () => {
-  // 色を反転させる
-  const currentColor = specialChar.style.color;
-  const currentBgColor = specialChar.style.backgroundColor;
-
-  specialChar.style.color = currentBgColor;
-  specialChar.style.backgroundColor = currentColor;
-});
-</script>
-</body>
+        <h1 class="whitetext">佐々木原電鉄ホームページへようこそ<br>このページでは運行情報の確認方法や社員募集についてなどをまとめています</h1>
+        <h2 class="whitetext">路線図</h2>
+        <img src="image/rosenzu.png" alt="rosenzuicon" width="512" height="374">
+        <h2 class="whitetext">社員募集について</h2>
+        <span class="whitetext">現在壊滅的に人員が不足しており、
+            <!--事実なので開発者増えてほしい-->
+            <br>
+            誰でも志願することで社員になれる状況となっております。</span>
+            <!--こっちから志願するレベルなんよ-->
+        <span class="whitetext">詳細は<a href="https://discord.gg/u7ZdbTRsun">こちら</a>へ</span>
+        <h2 class="whitetext">社長の意気込み</h2>
+        <img src="image/ankake.webp" alt="ankakeroru">
+        <br>
+        <br>
+        <nav>
+            <ul>
+                <br>
+                <span class="whitetext fontsizehs">佐々木原電鉄公式</span>
+                <br>
+                <br>
+            </ul>
+        </nav>
+    </body>
 </html>
