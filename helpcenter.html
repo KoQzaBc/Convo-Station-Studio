@@ -2,6 +2,14 @@
     <head>
         <title>お問い合わせフォーム</title>
         <style>
+.formdivclass {
+font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
 .contact-form {
     width: 300px;
     padding: 20px;
@@ -61,12 +69,14 @@ li a {
         <h1>このページはお問い合わせです
         <br>
         以下のフォームに内容を記入してください</h1>
+        <div class="formdivclass">
         <form id="contactForm">
             <input type="text" id="name" placeholder="NAME" required>
             <input type="email" id="email" placeholder="返信用メールアドレス" required>
             <textarea id="message" placeholder="message" required></textarea>
             <button type="submit">送信</button>
         </form>
+            </div>
         <span>迷惑行為を行った場合は厳重な処罰を行わせていただきます</span>
             <li><a href="index.html">メインページはこちら</a></li>
     </body>
